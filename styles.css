@@ -1,0 +1,19 @@
+body {
+    background-color: pink;
+  }
+  h1 {
+    background-image: url("crepes.avif");
+    text-align: center;
+    background-color: lightblue;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+  
+  }
+  p {
+    color: red;
+  }
+
+
+    
