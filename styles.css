@@ -36,12 +36,15 @@ body {
     float: left;
     width:80%;
     height: 500px;
-    background-image: url("french2.jpg");
+    background-image: url("tower.avif");
   }
 
   .rightcolumn {
     float:right;
+    background-size: cover;
     width: 20%;
+    height: 500px;
+    background-color: #E75480;
 
   }
   @media screen and (max-width: 800px) {
