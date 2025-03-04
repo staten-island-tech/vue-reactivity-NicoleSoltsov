@@ -5,7 +5,7 @@ html, body, *{
     box-sizing: border-box;
 }
 body {
-    background-color: pink;
+    background-color: #FFD0D7;
   }
   h1 {
     text-align: center;
@@ -29,6 +29,24 @@ body {
 
   .ex1 {  
     background-image: url("crepes.avif");
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .leftcolumn {
+    float: left;
+    width:80%;
+    height: 500px;
+    background-image: url("french2.jpg");
+  }
+
+  .rightcolumn {
+    float:right;
+    width: 20%;
+
+  }
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
   }
