@@ -31,20 +31,22 @@ body {
     background-image: url("crepes.avif");
     padding-top: 60px;
     padding-bottom: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
   }
   .leftcolumn {
     float: left;
-    width:80%;
-    height: 500px;
+    width:75%;
+    height: 3000px;
+    overflow-y: auto;
     background-image: url("tower.avif");
   }
 
   .rightcolumn {
     float:right;
     background-size: cover;
-    width: 20%;
-    height: 500px;
+    width: 25%;
+    height: 5000px;
+    overflow-y: auto;
     background-color: #E75480;
 
   }
@@ -53,4 +55,14 @@ body {
       width: 100%;
       padding: 0;
     }
+  }
+  .box {
+    background-color: #FFD0D7;
+    border-style: solid;
+    border-width: 3px;
+    border-color: lightpink;
+    width: 180px;
+    height: 300px;
+    margin-top: 35px;
+    margin-left: 35px
   }
