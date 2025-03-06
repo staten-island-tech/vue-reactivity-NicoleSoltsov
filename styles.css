@@ -28,7 +28,7 @@ body {
   }
 
   .ex1 {  
-    background-image: url("crepes.avif");
+    background-image: url("/ingredients/crepes.avif");
     padding-top: 60px;
     padding-bottom: 60px;
     margin-bottom: 35px;
@@ -38,7 +38,7 @@ body {
     width:75%;
     height: 3000px;
     overflow-y: auto;
-    background-image: url("tower.avif");
+    background-image: url("/ingredients/tower.avif");
   }
 
   .rightcolumn {
@@ -61,8 +61,25 @@ body {
     border-style: solid;
     border-width: 3px;
     border-color: lightpink;
-    width: 180px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    width: 200px;
     height: 300px;
     margin-top: 35px;
-    margin-left: 35px
+    margin-left: 35px;
+    align-items: flex-start;
+  }
+
+  .box img{
+    width: 100%;
+    height: auto;
+    top: 0;
+     
+  }
+
+  .box .text {
+    margin-top: 10px;
+    text-align:center;
   }
