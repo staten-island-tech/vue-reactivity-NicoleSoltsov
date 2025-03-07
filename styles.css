@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 html, body, *{
     margin: 0;
     padding: 0;
@@ -6,8 +8,8 @@ html, body, *{
 }
 body {
     background-color: #FFD0D7;
-  }
-  h1 {
+}
+h1 {
     text-align: center;
     font-family: "Playfair Display", serif;
     border-radius: 15px;
@@ -17,51 +19,58 @@ body {
     line-height: 1; 
     width: 400px;
     height: 70px;
-    border-style:solid;
+    border-style: solid;
     border-width: 3px;
     border-color: darkmagenta;
     background-color: lightpink;
     margin: auto;
-  }
-  p {
+}
+p {
     color: red;
-  }
+}
 
-  .ex1 {  
+.ex1 {  
     background-image: url("/ingredients/crepes.avif");
     padding-top: 60px;
     padding-bottom: 60px;
     margin-bottom: 35px;
-  }
-  .leftcolumn {
-    float: left;
-    width:75%;
-    height: 3000px;
-    overflow-y: auto;
-    background-image: url("/ingredients/tower.avif");
-  }
+}
 
-  .rightcolumn {
-    float:right;
-    background-size: cover;
-    width: 25%;
-    height: 5000px;
-    overflow-y: auto;
-    background-color: #E75480;
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* To allow the columns to stack on smaller screens */
+}
 
-  }
-  @media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
-      width: 100%;
-      padding: 0;
-    }
-  }
-  .box {
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* To allow the columns to stack on smaller screens */
+}
+
+.leftcolumn {
+  flex: 3;  /* 75% width for left column */
+  height: 3000px;
+  overflow-y: auto;
+  background-image: url("/ingredients/tower.avif");
+  background-size: cover; /* Ensure the image covers the entire area */
+  background-position: center center; /* Center the image */
+}
+
+.rightcolumn {
+  flex: 1;  /* 25% width for right column */
+  height: 5000px;
+  overflow-y: auto;
+  background-color: #E75480;
+  background-size: cover; /* Ensure the right column background also covers */
+}
+
+
+.box {
     background-color: #FFD0D7;
     border-style: solid;
     border-width: 3px;
     border-color: lightpink;
-    display: flex;
     justify-content: center;
     overflow: hidden;
     position: absolute;
@@ -70,16 +79,23 @@ body {
     margin-top: 35px;
     margin-left: 35px;
     align-items: flex-start;
-  }
+}
 
-  .box img{
-    width: 100%;
+.box img{
+    width: 80%;
     height: auto;
+    border: 3px solid #FF87AB;
     top: 0;
-     
-  }
-
-  .box .text {
+    display: block;
+    margin-bottom: 10px;
+    margin: 0 auto;
     margin-top: 10px;
-    text-align:center;
-  }
+}
+
+.text {
+    margin-top: 10px;
+    text-align: center;
+    font-family: "Patrick Hand", cursive;
+    font-size: 30px;
+    color: darkmagenta;
+}
