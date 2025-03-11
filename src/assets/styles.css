@@ -39,13 +39,7 @@ p {
 .container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* To allow the columns to stack on smaller screens */
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; /* To allow the columns to stack on smaller screens */
+  flex-wrap: wrap;
 }
 
 .leftcolumn {
