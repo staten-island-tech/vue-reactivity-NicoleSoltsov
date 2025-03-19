@@ -1,6 +1,6 @@
 <script setup>
 import IngredientItem from './IngredientItem.vue';
-import ingredientImages from '@/assets/ingredientImages.js';
+import ingredientImages from '@/assets/ingredientsImages.js';
 
 // Get ingredient names dynamically from ingredientImages.js
 const ingredients = Object.keys(ingredientImages);

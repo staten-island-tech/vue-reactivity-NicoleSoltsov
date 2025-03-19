@@ -1,5 +1,5 @@
 <script setup>
-import ingredientImages from '@/assets/ingredientImages';
+import ingredientImages from '@/assets/ingredientsImages';
 
 defineProps(['name']);
 </script>

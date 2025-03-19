@@ -1,5 +1,5 @@
 <script setup>
-import ingredientImages from '@/assets/ingredientImages.js';
+import ingredientImages from '@/assets/ingredientsImages.js';
 
 // Define props and events
 defineProps(['selectedIngredients']);
