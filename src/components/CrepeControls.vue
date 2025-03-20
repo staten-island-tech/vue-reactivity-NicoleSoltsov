@@ -13,7 +13,6 @@ const ingredients = Object.keys(ingredientImages);
   <div class="controls-container">
     <h2 class="title">Choose Ingredients</h2>
     
-    <!-- Ingredient Buttons -->
     <div class="ingredient-buttons">
       <button 
         v-for="ingredient in ingredients" 
