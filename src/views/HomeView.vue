@@ -4,17 +4,14 @@ import IngredientList from '@/components/IngredientList.vue';
 import CrepeDisplay from '@/components/CrepeDisplay.vue';
 import CrepeControls from '@/components/CrepeControls.vue';
 
-// Reactive array to store selected ingredients
 const selectedIngredients = ref([]);
 
-// Function to add an ingredient
 const addToCrepe = (ingredient) => {
   if (!selectedIngredients.value.includes(ingredient)) {
     selectedIngredients.value.push(ingredient);
   }
 };
 
-// Function to remove the last added ingredient
 const removeFromCrepe = () => {
   selectedIngredients.value.pop();
 };

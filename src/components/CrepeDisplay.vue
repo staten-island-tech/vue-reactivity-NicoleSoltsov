@@ -1,35 +1,28 @@
 <script setup>
 import { computed } from "vue";
+import ingredientImages from "@/assets/ingredientsImages.js"; // Import image mapping
+
+// Import static images
+const emptyCrepeImage = new URL('@/assets/images/empty-crepe.webp', import.meta.url).href;
+const fallbackImage = new URL('@/assets/images/fallback.png', import.meta.url).href;
+
 defineProps(["selectedIngredients"]);
 
-const getImagePath = (ingredient) => {
-  const extensions = ['png', 'jpg', 'jpeg', 'svg', 'webp', 'avif']; // List of supported extensions
+// Function to get ingredient image from mapping
+const getImagePath = (ingredient) => ingredientImages[ingredient] || fallbackImage;
 
-  for (const ext of extensions) {
-    try {
-      return new URL(`@/assets/ingredientImages/${ingredient}.${ext}`, import.meta.url).href;
-    } catch (e) {
-      // Continue checking the next extension
-    }
-  }
-
-  console.error(`Error loading image for ${ingredient}: No valid file found.`);
-  return "/src/assets/images/fallback.png"; // Optional fallback image
-};
-
-
-// Random position generator (you can customize this)
+// Random positioning for ingredients
 const getRandomPosition = () => {
-  const randomX = Math.random() * 250; // 250px max for the crepe container
-  const randomY = Math.random() * 250; // 250px max for the crepe container
+  const randomX = Math.random() * 250;
+  const randomY = Math.random() * 250;
   return { left: `${randomX}px`, top: `${randomY}px` };
-};
+};  
 </script>
 
 <template>
   <div class="crepe-container">
     <div class="crepe">
-      <img v-if="selectedIngredients.length === 0" src="@/assets/images/empty-crepe.webp" alt="Empty crepe" class="crepe-base"/>
+      <img v-if="selectedIngredients.length === 0" :src="emptyCrepeImage" alt="Empty crepe" class="crepe-base"/>
 
       <div 
         v-for="(ingredient, index) in selectedIngredients" 
@@ -80,7 +73,7 @@ const getRandomPosition = () => {
 .ingredient img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Ensures image maintains aspect ratio */
+    object-fit: contain;
 }
 
 .empty-message {
