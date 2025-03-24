@@ -16,6 +16,8 @@ const ingredientImages = {
   powdered_sugar: new URL('/src/assets/images/powderedsugar.jpg', import.meta.url).href,
   raspberries: new URL('/src/assets/images/raspberries.jpg', import.meta.url).href,
   sprinkles: new URL('/src/assets/images/sprinkles.avif', import.meta.url).href,
+  almonds: new URL('/src/assets/images/almonds2.png', import.meta.url).href,
+
 };
 
 export default ingredientImages;
