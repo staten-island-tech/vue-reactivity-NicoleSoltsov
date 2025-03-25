@@ -36,6 +36,7 @@ defineProps(['name']);
     height: auto;
     border: 3px solid #FF87AB;
     margin-top: 10px;
+    background-color: white;
 }
 
 .text {

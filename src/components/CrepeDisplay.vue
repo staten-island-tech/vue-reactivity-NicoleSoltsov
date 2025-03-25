@@ -1,34 +1,40 @@
 <script setup>
-import { computed } from "vue";
+import { ref, computed } from "vue";
 import ingredientImages from "@/assets/ingredientsImages.js"; // Import image mapping
 
 // Import static images
 const emptyCrepeImage = new URL('@/assets/images/empty-crepe.webp', import.meta.url).href;
 const fallbackImage = new URL('@/assets/images/fallback.png', import.meta.url).href;
 
-defineProps(["selectedIngredients"]);
+const props = defineProps(["selectedIngredients"]);
 
 // Function to get ingredient image from mapping
 const getImagePath = (ingredient) => ingredientImages[ingredient] || fallbackImage;
 
-// Random positioning for ingredients
-const getRandomPosition = () => {
-  const randomX = Math.random() * 250;
-  const randomY = Math.random() * 250;
-  return { left: `${randomX}px`, top: `${randomY}px` };
-};  
+// Store ingredient positions so they don't change on re-renders
+const ingredientPositions = ref({});
+
+const getIngredientPosition = (ingredient, index) => {
+  if (!ingredientPositions.value[index]) {
+    const randomX = Math.random() * 200 + 50; // Adjusted to fit within the crepe
+    const randomY = Math.random() * 200 + 50;
+    ingredientPositions.value[index] = { left: `${randomX}px`, top: `${randomY}px` };
+  }
+  return ingredientPositions.value[index];
+};
 </script>
 
 <template>
   <div class="crepe-container">
     <div class="crepe">
-      <img v-if="selectedIngredients.length === 0" :src="emptyCrepeImage" alt="Empty crepe" class="crepe-base"/>
+      <!-- Keep the base crepe image -->
+      <img :src="emptyCrepeImage" alt="Empty crepe" class="crepe-base"/>
 
+      <!-- Ingredients layered on top -->
       <div 
         v-for="(ingredient, index) in selectedIngredients" 
         :key="index" 
-        class="ingredient"
-        :style="getRandomPosition()">
+        class="ingredient">
         <img :src="getImagePath(ingredient)" :alt="ingredient" />
       </div>
     </div>
@@ -50,9 +56,8 @@ const getRandomPosition = () => {
     position: relative;
     width: 300px;
     height: 300px;
-    background-color: #FFDDC1;
     border-radius: 50%;
-    border: 4px solid #D4A373;
+    border: 4px solid transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,6 +67,8 @@ const getRandomPosition = () => {
 .crepe-base {
     width: 100%;
     height: auto;
+    position: absolute; /* Ensures it's always behind ingredients */
+    transform: scale(1.7);
 }
 
 .ingredient {
