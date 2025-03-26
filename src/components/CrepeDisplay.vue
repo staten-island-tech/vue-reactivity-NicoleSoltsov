@@ -80,6 +80,7 @@ const getIngredientPosition = (ingredient, index) => {
 .ingredient img {
     max-width: 100%;
     max-height: 100%;
+    transform: scale(4);
     object-fit: contain;
 }
 
