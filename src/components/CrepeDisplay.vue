@@ -4,24 +4,27 @@ import ingredientImages from "@/assets/ingredientsImages.js"; // Import image ma
 
 // Import static images
 const emptyCrepeImage = new URL('@/assets/images/empty-crepe.webp', import.meta.url).href;
-const fallbackImage = new URL('@/assets/images/fallback.png', import.meta.url).href;
 
 const props = defineProps(["selectedIngredients"]);
 
 // Function to get ingredient image from mapping
 const getImagePath = (ingredient) => ingredientImages[ingredient] || fallbackImage;
 
-// Store ingredient positions so they don't change on re-renders
 const ingredientPositions = ref({});
 
 const getIngredientPosition = (ingredient, index) => {
   if (!ingredientPositions.value[index]) {
-    const randomX = Math.random() * 200 + 50; // Adjusted to fit within the crepe
-    const randomY = Math.random() * 200 + 50;
+    const centerX = 150; 
+    const centerY = 150; 
+
+    const randomX = centerX + (Math.random() * 100 - 50);
+    const randomY = centerY + (Math.random() * 100 - 50);
+
     ingredientPositions.value[index] = { left: `${randomX}px`, top: `${randomY}px` };
   }
   return ingredientPositions.value[index];
 };
+
 </script>
 
 <template>
@@ -34,7 +37,8 @@ const getIngredientPosition = (ingredient, index) => {
       <div 
         v-for="(ingredient, index) in selectedIngredients" 
         :key="index" 
-        class="ingredient">
+        class="ingredient"
+        :style="getIngredientPosition(ingredient, index)">
         <img :src="getImagePath(ingredient)" :alt="ingredient" />
       </div>
     </div>
