@@ -93,6 +93,6 @@ const getIngredientPosition = (ingredient, index) => {
 .empty-message {
     margin-top: 10px;
     font-size: 18px;
-    color: gray;
+    color: palevioletred;
 }
 </style>
