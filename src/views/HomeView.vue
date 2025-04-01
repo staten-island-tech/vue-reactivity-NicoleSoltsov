@@ -6,12 +6,12 @@ import CrepeControls from '@/components/CrepeControls.vue';
 
 const selectedIngredients = ref([]);
 
+// Add ingredient without checking for duplicates
 const addToCrepe = (ingredient) => {
-  if (!selectedIngredients.value.includes(ingredient)) {
-    selectedIngredients.value.push(ingredient);
-  }
+  selectedIngredients.value.push(ingredient);
 };
 
+// Remove the last added ingredient
 const removeFromCrepe = () => {
   selectedIngredients.value.pop();
 };

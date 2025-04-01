@@ -4,6 +4,7 @@ import ingredientImages from "@/assets/ingredientsImages.js"; // Import image ma
 
 // Import static images
 const emptyCrepeImage = new URL('@/assets/images/empty-crepe.webp', import.meta.url).href;
+const fallbackImage = new URL('@/assets/images/fallback.png', import.meta.url).href;
 
 const props = defineProps(["selectedIngredients"]);
 
@@ -14,17 +15,18 @@ const ingredientPositions = ref({});
 
 const getIngredientPosition = (ingredient, index) => {
   if (!ingredientPositions.value[index]) {
-    const centerX = 150; 
-    const centerY = 150; 
+    const centerX = 150;
+    const centerY = 150;
+    const radius = 80; // Distance from the center
+    const angle = (index * (360 / props.selectedIngredients.length)) * (Math.PI / 180);
 
-    const randomX = centerX + (Math.random() * 100 - 50);
-    const randomY = centerY + (Math.random() * 100 - 50);
+    const posX = centerX + radius * Math.cos(angle) - 25; // Adjust for ingredient size
+    const posY = centerY + radius * Math.sin(angle) - 25;
 
-    ingredientPositions.value[index] = { left: `${randomX}px`, top: `${randomY}px` };
+    ingredientPositions.value[index] = { left: `${posX}px`, top: `${posY}px` };
   }
   return ingredientPositions.value[index];
 };
-
 </script>
 
 <template>

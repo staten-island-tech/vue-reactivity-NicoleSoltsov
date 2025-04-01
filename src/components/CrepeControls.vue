@@ -17,11 +17,21 @@ const ingredients = Object.keys(ingredientImages);
       <button 
         v-for="ingredient in ingredients" 
         :key="ingredient" 
-        @click="$emit('add-ingredient', ingredient)"
+        @click="$emit('add-ingredient', ingredient)" 
         class="add-button"
       >
         + {{ ingredient }}
       </button>
+    </div>
+
+    <!-- Display selected ingredients -->
+    <div class="selected-ingredients">
+      <h3>Selected Ingredients:</h3>
+      <ul>
+        <li v-for="(ingredient, index) in selectedIngredients" :key="index">
+          {{ ingredient }}
+        </li>
+      </ul>
     </div>
 
     <!-- Remove Last Ingredient Button -->
@@ -82,5 +92,9 @@ const ingredients = Object.keys(ingredientImages);
 
 .remove-button:hover {
     background-color: #cc3333;
+}
+
+.selected-ingredients {
+    margin-top: 20px;
 }
 </style>
