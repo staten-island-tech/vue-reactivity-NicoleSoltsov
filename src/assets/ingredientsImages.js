@@ -13,7 +13,7 @@ const ingredientImages = {
   nutella: new URL('/src/assets/images/nutella4.png', import.meta.url).href,
   peaches: new URL('/src/assets/images/peaches3.png', import.meta.url).href,
   peanut_butter: new URL('/src/assets/images/pb2.png', import.meta.url).href,
-  raspberries: new URL('/src/assets/images/raspberries3.png', import.meta.url).href,
+  raspberries: new URL('/src/assets/images/raspb.png', import.meta.url).href,
   sprinkles: new URL('/src/assets/images/sprinkles2.png', import.meta.url).href,
   almonds: new URL('/src/assets/images/almonds2.png', import.meta.url).href,
 

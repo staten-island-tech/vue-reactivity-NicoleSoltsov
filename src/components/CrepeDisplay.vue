@@ -17,16 +17,31 @@ const getIngredientPosition = (ingredient, index) => {
   if (!ingredientPositions.value[index]) {
     const centerX = 150;
     const centerY = 150;
-    const radius = 80; // Distance from the center
+    const maxRadius = 50; // Maximum distance from the center
+
     const angle = (index * (360 / props.selectedIngredients.length)) * (Math.PI / 180);
 
-    const posX = centerX + radius * Math.cos(angle) - 25; // Adjust for ingredient size
-    const posY = centerY + radius * Math.sin(angle) - 25;
+    // Calculate raw positions
+    let posX = centerX + maxRadius * Math.cos(angle);
+    let posY = centerY + maxRadius * Math.sin(angle);
+
+    // Adjust for ingredient size to center the image
+    posX -= 50;
+    posY -= 50;
+
+    // Make sure the distance from the center does not exceed maxRadius
+    const distance = Math.sqrt((posX - centerX) ** 2 + (posY - centerY) ** 2);
+    if (distance > maxRadius) {
+      const scale = maxRadius / distance;
+      posX = centerX + (posX - centerX) * scale;
+      posY = centerY + (posY - centerY) * scale;
+    }
 
     ingredientPositions.value[index] = { left: `${posX}px`, top: `${posY}px` };
   }
   return ingredientPositions.value[index];
 };
+
 </script>
 
 <template>
