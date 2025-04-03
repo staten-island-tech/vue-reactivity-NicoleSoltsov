@@ -45,4 +45,5 @@ defineProps(['name']);
     font-size: 30px;
     color: darkmagenta;
 }
+
 </style>
