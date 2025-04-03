@@ -56,7 +56,7 @@ const removeFromCrepe = () => {
     font-size: 32px;
     font-weight: bold;
     color: #4A2C2A;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .content {

@@ -4,7 +4,7 @@
 <template>
   <div id="app">
     <header class="app-header">
-      <h1>🥞 Crepe Maker 🥞</h1>
+      <h1>Crepe Maker</h1>
     </header>
     
     <main>
@@ -18,6 +18,22 @@
 </template>
 
 <style scoped>
+h1 {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; 
+    width: 400px;
+    height: 70px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: darkmagenta;
+    background-color: lightpink;
+    margin: auto;
+}
 #app {
     display: flex;
     flex-direction: column;
@@ -27,8 +43,8 @@
 }
 
 .app-header {
-    background-color: #FFCC99;
-    padding: 20px;
+    background-color: #DAB1DA;
+    padding: 35px;
     font-size: 24px;
     font-weight: bold;
     color: #4A2C2A;
