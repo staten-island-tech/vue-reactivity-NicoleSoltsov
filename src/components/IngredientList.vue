@@ -23,18 +23,17 @@ const ingredients = Object.keys(ingredientImages);
 <style scoped>
 .ingredient-list {
     display: flex;
-    flex-wrap: wrap; 
-    gap: 10px;      
-    justify-content: flex-start; 
+    flex-wrap: wrap;  /* Allows wrapping to the next line */
+    gap: 10px;        /* Adds spacing between items */
+    justify-content: flex-start; /* Aligns items to the start of the row */
     padding: 20px;
-    width: 100%;  /* Ensure it takes the full width of its parent */
-    box-sizing: border-box; /* Prevent padding/borders from affecting width */
+    width: 100%;  /* Ensures it takes the full width of its parent */
+    box-sizing: border-box; /* Ensures padding/borders are included in width */
 }
 
-/* Ensure the ingredients take up equal space in a row */
+/* Ensure the items take up flexible space */
 .ingredient-list > .ingredient-item {
-    width: calc(50% - 10px);  /* 2 per row, accounting for 10px gap */
-    min-width: 180px; /* Prevents it from shrinking too much */
+    flex: 1 1 180px; /* Makes the items flexible, 180px is the minimum width */
     box-sizing: border-box; /* Ensures padding/borders are included in width */
 }
 </style>

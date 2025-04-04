@@ -79,7 +79,7 @@ const removeLastIngredient = () => {
 }
 
 .left-panel, .right-panel {
-    width: 30%;
+    width: 50%;
 }
 
 .center-panel {
