@@ -95,6 +95,6 @@ const ingredients = Object.keys(ingredientImages);
 }
 
 .selected-ingredients {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 </style>

@@ -6,13 +6,21 @@ import CrepeControls from '@/components/CrepeControls.vue';
 
 const selectedIngredients = ref([]);
 
-// Add ingredient without checking for duplicates
+// Add an ingredient
 const addToCrepe = (ingredient) => {
   selectedIngredients.value.push(ingredient);
 };
 
-// Remove the last added ingredient
-const removeFromCrepe = () => {
+// Remove the last added instance of a specific ingredient
+const removeFromCrepe = (ingredient) => {
+  const index = selectedIngredients.value.lastIndexOf(ingredient);
+  if (index !== -1) {
+    selectedIngredients.value.splice(index, 1);
+  }
+};
+
+// Remove the last ingredient regardless of type (for CrepeControls)
+const removeLastIngredient = () => {
   selectedIngredients.value.pop();
 };
 </script>
@@ -26,7 +34,10 @@ const removeFromCrepe = () => {
     <div class="content">
       <!-- Left: Ingredient Selection -->
       <div class="left-panel">
-        <IngredientList />
+        <IngredientList 
+          @add-ingredient="addToCrepe" 
+          @remove-ingredient="removeFromCrepe" 
+        />
       </div>
 
       <!-- Center: Crepe Display -->
@@ -39,7 +50,7 @@ const removeFromCrepe = () => {
         <CrepeControls 
           :selectedIngredients="selectedIngredients"
           @add-ingredient="addToCrepe"
-          @remove-ingredient="removeFromCrepe"
+          @remove-ingredient="removeLastIngredient"
         />
       </div>
     </div>
